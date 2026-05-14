@@ -33,7 +33,7 @@ jobs:
             --exit-code 0
 
       - name: Upload Gitleaks report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: gitleaks-report
           path: gitleaks-report.json
@@ -60,6 +60,7 @@ jobs:
       - name: Build user-service image
         uses: docker/build-push-action@v7
         with:
+          context: ./src/services/user-service
           load: true
           push: false
           tags: |
@@ -69,6 +70,7 @@ jobs:
       - name: Build order-service image
         uses: docker/build-push-action@v7
         with:
+          context: ./src/services/order-service
           load: true
           push: false
           tags: |
