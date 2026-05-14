@@ -64,8 +64,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: ./src/services/user-service
-          load: true
-          push: false
+          push: true
           tags: |
             atharva12801/user-service:${{ github.sha }}
             atharva12801/user-service:latest
@@ -74,18 +73,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: ./src/services/order-service
-          load: true
-          push: false
-          tags: |
-            atharva12801/order-service:${{ github.sha }}
-            atharva12801/order-service:latest
-      
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v7
-        with:
           push: true
           tags: |
-            atharva12801/user-service:${{ github.sha }}
-            atharva12801/user-service:latest
             atharva12801/order-service:${{ github.sha }}
             atharva12801/order-service:latest
