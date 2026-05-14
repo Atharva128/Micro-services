@@ -7,12 +7,12 @@ resource "aws_vpc" "my-vpc" {
 }
 
 module "network" {
-  source = "../network"
-  vpc_id = aws_vpc.my-vpc.id
-  vpc_cidr_block = var.vpc_cidr_block
-  public_subnet_cidr_block = var.public_subnet_cidr_block
+  source                    = "../network"
+  vpc_id                    = aws_vpc.my-vpc.id
+  vpc_cidr_block            = var.vpc_cidr_block
+  public_subnet_cidr_block  = var.public_subnet_cidr_block
   private_subnet_cidr_block = var.private_subnet_cidr_block
-  db_subnet_cidr_block = var.db_subnet_cidr_block
-  project_name = var.project_name
-  env = var.env
+  db_subnet_cidr_block      = var.db_subnet_cidr_block
+  project_name              = var.project_name
+  env                       = var.env
 }
